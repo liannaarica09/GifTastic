@@ -24,10 +24,12 @@
 
       // This function handles events where one button is clicked
       $("#addReact").on("click", function(event) {
+        console.log("addReact triggered");
         // Preventing the buttons default behavior when clicked (which is submitting a form)
         event.preventDefault();
         // This line grabs the input from the textbox
         var reactPhrase = $("#reactInput").val().trim();
+        console.log(reactPhrase);
 
         // Adding the movie from the textbox to our array
         reactions.push(reactPhrase);
