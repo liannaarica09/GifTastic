@@ -1,12 +1,12 @@
 // Initial array of reactions
-      var reactions = ["Yes", "No", "WTF", "LOL", "Feels"];
+      var reactions = ["Yes", "No", "WTF", "LOL", "Feels", "Help", "need sleep", "dying", "go away", "what is wrong with you", "Monday", "face palm", "omg", "love you", "bff", "hungry", "awesome", "fantastic", "yikes", "100% done", "eye roll", "high five", "hug", "live long and prosper", "terrified", "i can kill you with my brain", "curse your sudden but inevitable betrayal", "I'm a leaf on the wind", "wrongness", "same", "stop", "I hate you", "let's go", "going on an adventure", "dumpster fire", "dftba", "the game is afoot", "troll in the dungeon", "i'm surrounded by idiots", "sarcasm", "shock", "not our division", "shut up", "applause", "allons-y", "slow clap", "stupid", "embarrassed", "tell me", "judging you", "hulk"];
 
       // Function for displaying astronaut data
       function renderButtons() {
 
         $("#buttons-view").empty();
 
-        // Looping through the array of astornauts
+        // Looping through the array of reactions
         for (var i = 0; i < reactions.length; i++) {
 
           // Then dynamicaly generating buttons for each astronaut in the array
@@ -27,7 +27,8 @@
         console.log("addReact triggered");
         // Preventing the buttons default behavior when clicked (which is submitting a form)
         event.preventDefault();
-        // This line grabs the input from the textbox
+        console.log($("#reactInput").val().trim());
+        // This line grabs the input from the text box
         var reactPhrase = $("#reactInput").val().trim();
         console.log(reactPhrase);
 
@@ -59,6 +60,7 @@
           // Constructing a URL to search Giphy for the name of the astronaut 
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=dmseLITUBdFeee6cPWwIVaVUjdK4JQhV&q=" + reaction + "&limit=10&offset=0";
 
+
           // Performing our AJAX GET request
           $.ajax({
               url: queryURL,
@@ -86,7 +88,7 @@
                   // Creating an image tag
                   var reactImage = $("<img class='item'>");
 
-                  // Giving the image tag an src attribute of a proprty pulled off the
+                  // Giving the image tag an src attribute of a property pulled off the
                   // result item
                   reactImage.attr("src", results[i].images.fixed_height.url);
                   reactImage.attr("data-state", "animate");
@@ -107,5 +109,5 @@
           $(document).on("click", ".react", findGifs);
           $(document).on("click", ".item", pauseOrPlay);
 
-      // Calling the renderButtons function to display the intial buttons
+      // Calling the renderButtons function to display the initial buttons
       renderButtons();
