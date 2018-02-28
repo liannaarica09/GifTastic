@@ -9,7 +9,7 @@
         // Looping through the array of reactions
         for (var i = 0; i < reactions.length; i++) {
 
-          // Then dynamicaly generating buttons for each astronaut in the array
+          // Then dynamically generating buttons for each astronaut in the array
           var a = $("<button>");
           // Adding a class of react to our button
           a.addClass("react");
@@ -32,7 +32,7 @@
         var reactPhrase = $("#reactInput").val().trim();
         console.log(reactPhrase);
 
-        // Adding the movie from the textbox to our array
+        // Adding the movie from the text box to our array
         reactions.push(reactPhrase);
 
         // Calling renderButtons which handles the processing of our movie array
